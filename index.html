@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psycortex — Mejores mentes. Mejor desempeño.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=99">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="field-glow"></div>
+<canvas id="circuit"></canvas>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="index.html" class="logo-mark">
+    <img src="assets/img/logo-new.png?v=2" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+    <img src="assets/img/logo-text.png?v=2" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Nosotros</a></li>
+    <li><a href="services.html">Servicios</a></li>
+    <li><a href="packages.html">Paquetes</a></li>
+    <li><a href="contact.html" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img src="assets/img/alba-cutout.png" class="hero-cutout" alt="Alba Cortez">
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <div class="rule"></div>
+      <span>SALUD MENTAL ESTRATÉGICA · RENDIMIENTO HUMANO</span>
+    </div>
+    <h1>La mente es el activo <em>más valioso</em> de una organización. Protégela, fortalécela y conviértela en una ventaja sostenible.</h1>
+    <p class="hero-sub">Psycortex es una consultora estratégica de salud mental y rendimiento humano para organizaciones de alta demanda. Identificamos y atendemos los riesgos psicológicos y cognitivos que afectan el bienestar, el liderazgo y el desempeño de los equipos.<br><br>Nuestro modelo integra diagnóstico, prevención, intervención clínica y medición de resultados para generar cambios sostenibles en las personas y en la organización.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary" style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.35;">
+        <span style="display: block; text-align: center; width: 100%;">SOLICITA UN</span>
+        <span style="display: block; text-align: center; width: 100%;">DIAGNÓSTICO INICIAL</span>
+      </a>
+      <a href="about.html" class="btn-ghost">
+        CONOCE EL MÉTODO PSYCORTEX
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="trust-row">
+      <p style="font-size: 14px; color: var(--ink); font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 0.05em;">DISEÑADO PARA ORGANIZACIONES DONDE EL RENDIMIENTO ES PRIMORDIAL.</p>
+      <span class="trust-label" style="margin-top: 8px;">SECTORES A LOS QUE PRESTAMOS SERVICIO:</span>
+      <div class="industry-ribbon">
+        <div class="ribbon-track">
+          <div class="ribbon-group">
+            <span>Finanzas</span><span class="dot">&bull;</span>
+            <span>Tecnología</span><span class="dot">&bull;</span>
+            <span>Servicios profesionales</span><span class="dot">&bull;</span>
+            <span>Centros de llamadas</span><span class="dot">&bull;</span>
+            <span>Equipos legales</span><span class="dot">&bull;</span>
+            <span>Operaciones corporativas</span><span class="dot">&bull;</span>
+          </div>
+          <div class="ribbon-group" aria-hidden="true">
+            <span>Finanzas</span><span class="dot">&bull;</span>
+            <span>Tecnología</span><span class="dot">&bull;</span>
+            <span>Servicios profesionales</span><span class="dot">&bull;</span>
+            <span>Centros de llamadas</span><span class="dot">&bull;</span>
+            <span>Equipos legales</span><span class="dot">&bull;</span>
+            <span>Operaciones corporativas</span><span class="dot">&bull;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-card">
+      <div class="stat-num">100<span>+</span></div>
+      <div class="stat-label"><strong>Sesiones clínicas corporativas impartidas:</strong><br>Brindando apoyo psicológico individual a empleados que trabajan en entornos de alta presión.</div>
+      <div class="stat-rule"></div>
+      
+      <div class="stat-num" style="color: var(--ink);">10<span style="color: var(--rose);">+</span></div>
+      <div class="stat-label"><strong>Departamentos y cuentas organizacionales apoyados:</strong><br>Asociándonos con equipos operativos, administrativos, técnicos y de liderazgo.</div>
+      <div class="stat-rule"></div>
+      
+      <div class="stat-num">20<span>+</span></div>
+      <div class="stat-label"><strong>Programas personalizados diseñados:</strong><br>Talleres a medida, laboratorios de liderazgo, intervención en crisis y apoyo emocional continuo.</div>
+      <div class="stat-rule"></div>
+      
+      <div class="stat-num"><span>$</span>4-5</div>
+      <div class="stat-label"><strong>ROI estimado por cada $1 invertido:</strong><br>Impulsado por una menor rotación, menor ausentismo, continuidad operativa mejorada y ahorros de costos internos medibles.</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ============ FOUNDER ============ -->
+<section class="credentials scroll-fade" id="founder" style="background: var(--cream-deep); border-bottom: 1px solid var(--line);">
+  <div class="wrap cred-grid">
+    <div class="cred-portrait scroll-fade">
+      <img src="assets/img/alba-cortez-psycortex.jpg" alt="Alba Cortez">
+      <span class="frame-label">Alba Cortez</span>
+    </div>
+    <div class="cred-copy scroll-fade">
+      <div class="eyebrow"><div class="rule"></div><span>FUNDADORA Y DIRECTORA</span></div>
+      <h2>“El alto rendimiento no debería construirse a costa de la <em>salud mental</em> de las personas.”</h2>
+      <p style="margin-bottom: 24px; font-size: 16px; line-height: 1.85; color: var(--ink-soft); font-weight: 300;">Soy Alba Cortez, psicóloga clínica y organizacional. Fundé Psycortex para unir dos campos que durante mucho tiempo han trabajado por separado: la profundidad de la psicología clínica y la visión estratégica de las organizaciones.</p>
+      <p style="margin-bottom: 24px; font-size: 16px; line-height: 1.85; color: var(--ink-soft); font-weight: 300;">Mi experiencia acompañando a personas, líderes y equipos bajo presión me permitió comprender que detrás del burnout, los conflictos internos, el ausentismo y la disminución del desempeño existen factores psicológicos que pueden identificarse, prevenirse y atenderse.</p>
+      <p style="margin-bottom: 35px; font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 600;"><strong>Psycortex nace para ayudar a las organizaciones a alcanzar resultados sostenibles, protegiendo al mismo tiempo la mente de las personas que los hacen posibles.</strong></p>
+      <h5 style="margin: 30px 0 15px 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 600;">Perfil profesional</h5>
+      <div class="cred-list">
+        <div class="cred-item"><span class="label">Nombre</span><span class="detail">Licda. Alba Cortez</span></div>
+        <div class="cred-item"><span class="label">Rol</span><span class="detail">Fundadora y directora de Psycortex</span></div>
+        <div class="cred-item"><span class="label">Profesión</span><span class="detail">Psicóloga clínica y organizacional</span></div>
+        <div class="cred-item"><span class="label">Formación</span><span class="detail">Licenciatura en Psicología · Maestría en Psicología Clínica y de la Salud.</span></div>
+        <div class="cred-item"><span class="label">Especialización</span><span class="detail">Salud mental corporativa, burnout, intervención en crisis, liderazgo y rendimiento humano</span></div>
+        <div class="cred-item"><span class="label">Enfoque</span><span class="detail">Diagnóstico, prevención, intervención y medición de resultados</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUESTRO MODELO DE INTERVENCIÓN ============ -->
+<section class="services scroll-fade" id="services">
+  <div class="wrap">
+    <div class="section-head scroll-fade">
+      <div>
+        <div class="eyebrow"><div class="rule"></div><span>NUESTRO MODELO DE INTERVENCIÓN</span></div>
+        <h2>¿Cómo trabaja Psycortex?</h2>
+      </div>
+      <p>Ayudamos a las organizaciones a identificar, prevenir y atender los riesgos psicológicos que afectan el bienestar, el liderazgo y el desempeño.<br><br>Integramos psicología clínica, neurociencia y estrategia organizacional mediante un modelo que convierte las necesidades de cada empresa en intervenciones medibles.</p>
+    </div>
+
+    <div class="pillars-grid scroll-fade">
+      <a href="services.html#service-01" class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-content">
+          <h4>Diagnóstico y medición</h4>
+          <p>Evaluación de clima emocional, riesgos psicosociales, estrés, burnout y necesidades específicas de líderes y equipos.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="services.html#service-02" class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-content">
+          <h4>Prevención y desarrollo</h4>
+          <p>Talleres y programas personalizados sobre salud mental, regulación del estrés, comunicación, resiliencia y prevención del agotamiento laboral.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="services.html#service-03" class="pillar-card">
+        <div class="pillar-num">03</div>
+        <div class="pillar-content">
+          <h4>Atención clínica e intervención en crisis</h4>
+          <p>Atención psicológica individual, manejo de crisis emocionales, acompañamiento de casos de alto riesgo y diseño de protocolos internos.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="services.html#service-04" class="pillar-card">
+        <div class="pillar-num">04</div>
+        <div class="pillar-content">
+          <h4>Liderazgo y rendimiento sostenible</h4>
+          <p>Programas para líderes, coaching especializado, gestión de conflictos y fortalecimiento de equipos que trabajan bajo presión.</p>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ APPROACH / METODOLOGÍA ============ -->
+<section class="approach scroll-fade" id="approach">
+  <div class="wrap">
+    <div class="section-head scroll-fade">
+      <div>
+        <div class="eyebrow"><div class="rule"></div><span>NUESTRA METODOLOGÍA</span></div>
+        <h2>No suponemos. <em>Diagnosticamos, intervenimos y medimos.</em></h2>
+      </div>
+      <p>Cada intervención comienza con evidencia y se transforma en una estrategia adaptada a la realidad de la organización.</p>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-card roadmap-card">
+        <div class="roadmap-step-badge">ETAPA 01</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Diagnóstico</h3>
+        <p>Evaluamos el clima emocional, los riesgos psicosociales y las necesidades de los equipos mediante instrumentos validados, entrevistas e indicadores organizacionales.</p>
+      </div>
+
+      <div class="roadmap-connector">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="approach-card roadmap-card">
+        <div class="roadmap-step-badge">ETAPA 02</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 19V5M4 19h16M9 15l3-4 3 3 4-6"/></svg>
+        <h3>Diseño</h3>
+        <p>Convertimos los hallazgos en un plan de trabajo personalizado, con objetivos, prioridades, intervenciones y criterios claros de seguimiento.</p>
+      </div>
+
+      <div class="roadmap-connector">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="approach-card roadmap-card">
+        <div class="roadmap-step-badge">ETAPA 03</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+        <h3>Intervención</h3>
+        <p>Implementamos atención clínica, talleres especializados, programas de liderazgo y protocolos de actuación según las necesidades identificadas.</p>
+      </div>
+
+      <div class="roadmap-connector">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+
+      <div class="approach-card roadmap-card">
+        <div class="roadmap-step-badge">ETAPA 04</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 12A10 10 0 1 1 12 2v10z"/></svg>
+        <h3>Medición</h3>
+        <p>Evaluamos los avances, presentamos resultados agregados y ajustamos la estrategia para sostener los cambios en el tiempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-panel">
+    <h2>Convierta la salud mental de su equipo en una <em>ventaja estratégica</em>.</h2>
+    <p>Programe una consulta para diseñar un programa de bienestar corporativo adaptado a las necesidades reales de su organización.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary light">Programe una consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-mark">
+        <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+        <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+      </a>
+      <p>Consultoría de desempeño psicológico para organizaciones que tratan la mente como infraestructura, no como una idea de último momento.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Sitio</h5>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Nosotros</a>
+      <a href="services.html">Servicios</a>
+      <a href="packages.html">Paquetes</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="mailto:Psycortexcorporate@gmail.com">Psycortexcorporate@gmail.com</a>
+      <a href="tel:+50373808867">+503 7380 8867</a>
+      <a href="contact.html">Formulario de contacto</a>
+    </div>
+    <div class="footer-col">
+      <h5>Conectar</h5>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <span>© 2026 Psycortex. Todos los derechos reservados.</span>
+    <span>Mejores mentes. Mejor desempeño.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=4"></script>
+</body>
+</html>

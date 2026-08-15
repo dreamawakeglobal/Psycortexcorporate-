@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paquetes | Psycortex</title>
+<meta name="description" content="Explore nuestros paquetes de salud mental corporativa Plata, Oro y Élite. Diseñados para organizaciones de alto rendimiento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=2500">
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="field-glow"></div>
+  <canvas id="circuit"></canvas>
+  
+  <!-- ============ NAV ============ -->
+  <nav>
+    <a href="index.html" class="logo-mark">
+      <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+      <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="about.html">Nosotros</a></li>
+      <li><a href="services.html">Servicios</a></li>
+      <li><a href="packages.html">Paquetes</a></li>
+      <li><a href="contact.html" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ PACKAGES HERO ============ -->
+  <section class="package-section">
+    <div class="wrap">
+      <div class="section-head scroll-fade">
+        <div class="eyebrow"><div class="rule"></div><span>Programas corporativos de salud mental y rendimiento humano</span></div>
+        <h2>Intervenciones estructuradas que evolucionan con su <em>organización</em>.</h2>
+        <p>Programas de 3, 6 y 12 meses que integran diagnóstico, prevención, intervención psicológica, fortalecimiento del liderazgo y medición de resultados.</p>
+        <p>Cada programa se adapta al número de colaboradores, los turnos, las áreas, las sedes y las necesidades operativas de la organización.</p>
+      </div>
+
+      <!-- Interactive Package Stack Switcher -->
+      <div class="stack-switcher scroll-fade">
+        <button type="button" class="stack-tab" data-target="esencial">Programa Esencial <span>(3 meses)</span></button>
+        <button type="button" class="stack-tab active" data-target="integral">★ Programa Integral <span>(6 meses)</span></button>
+        <button type="button" class="stack-tab" data-target="360">Programa Estratégico 360 <span>(12 meses)</span></button>
+      </div>
+
+      <div class="package-stack-deck scroll-fade" id="package-deck">
+        <div class="deck-glow-ambient"></div>
+        
+        <!-- PROGRAMA ESENCIAL -->
+        <div class="package-card is-stacked-left" data-package-id="esencial">
+          <div class="card-badge">3 meses • Diagnóstico y activación</div>
+          <h3>Programa Esencial</h3>
+          <p class="tier-desc">Para organizaciones que necesitan identificar riesgos, atender necesidades prioritarias y obtener resultados iniciales.</p>
+          <div class="card-divider"></div>
+          <ul class="package-features">
+            <li><span class="check-icon">✓</span><span>Diagnóstico de clima emocional, carga cognitiva y factores psicosociales.</span></li>
+            <li><span class="check-icon">✓</span><span>60 sesiones psicológicas confidenciales.</span></li>
+            <li><span class="check-icon">✓</span><span>Capacidad de 20 sesiones mensuales.</span></li>
+            <li><span class="check-icon">✓</span><span>3 talleres personalizados de 4 horas cada uno.</span></li>
+            <li><span class="check-icon">✓</span><span>1 sesión estratégica de alineación con líderes.</span></li>
+            <li><span class="check-icon">✓</span><span>Medición inicial y final.</span></li>
+            <li><span class="check-icon">✓</span><span>Informe ejecutivo con hallazgos y recomendaciones.</span></li>
+          </ul>
+          <a href="contact.html?package=esencial" class="btn-primary card-btn">Explorar el programa <span class="arrow-icon">→</span></a>
+        </div>
+
+        <!-- PROGRAMA INTEGRAL (Featured) -->
+        <div class="package-card package-featured is-active" data-package-id="integral">
+          <div class="featured-badge-top"><span class="gold-star">★</span> Recomendado</div>
+          <div class="card-badge card-badge-gold">6 meses • Intervención y fortalecimiento</div>
+          <h3>Programa Integral</h3>
+          <p class="tier-desc">Para organizaciones que buscan una intervención sostenida que fortalezca a sus líderes, atienda los riesgos identificados y mejore el funcionamiento de sus equipos.</p>
+          <div class="card-divider card-divider-gold"></div>
+          <ul class="package-features">
+            <li><span class="check-icon check-icon-gold">✓</span><span>Diagnóstico organizacional integral.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>Segmentación de riesgos y necesidades por áreas.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>120 sesiones psicológicas confidenciales.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>Capacidad de 20 sesiones mensuales.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>4 talleres especializados para líderes de 4 horas cada uno.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>2 talleres personalizados para equipos operativos de 4 horas cada uno.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>1 sesión intensiva de coaching para líderes de 3–4 horas.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>Protocolos para prevención y manejo del estrés y burnout.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>Medición inicial, intermedia y final.</span></li>
+            <li><span class="check-icon check-icon-gold">✓</span><span>Informes ejecutivos de progreso y resultados.</span></li>
+          </ul>
+          <a href="contact.html?package=integral" class="btn-primary card-btn card-btn-gold">Solicitar propuesta integral <span class="arrow-icon">→</span></a>
+        </div>
+
+        <!-- PROGRAMA ESTRATÉGICO 360 -->
+        <div class="package-card" data-package-id="360">
+          <div class="card-badge">12 meses • Consolidación y sostenibilidad</div>
+          <h3>Programa Estratégico 360</h3>
+          <p class="tier-desc">Para organizaciones que desean integrar la salud mental y el rendimiento humano como parte permanente de su estrategia de gestión.</p>
+          <div class="card-divider"></div>
+          <ul class="package-features">
+            <li><span class="check-icon">✓</span><span>Diagnóstico organizacional inicial.</span></li>
+            <li><span class="check-icon">✓</span><span>Monitoreo periódico del clima emocional y los factores psicosociales.</span></li>
+            <li><span class="check-icon">✓</span><span>240 sesiones psicológicas confidenciales.</span></li>
+            <li><span class="check-icon">✓</span><span>Capacidad de 20 sesiones mensuales.</span></li>
+            <li><span class="check-icon">✓</span><span>12 talleres o laboratorios especializados de 4 horas cada uno.</span></li>
+            <li><span class="check-icon">✓</span><span>Programa continuo de fortalecimiento del liderazgo.</span></li>
+            <li><span class="check-icon">✓</span><span>4 sesiones trimestrales de coaching para líderes.</span></li>
+            <li><span class="check-icon">✓</span><span>Protocolos de estrés, burnout, crisis psicológica y derivación.</span></li>
+            <li><span class="check-icon">✓</span><span>Acompañamiento a equipos bajo presión, cambio o conflicto.</span></li>
+            <li><span class="check-icon">✓</span><span>Canal prioritario de orientación ante situaciones críticas.</span></li>
+            <li><span class="check-icon">✓</span><span>Seguimiento trimestral de indicadores.</span></li>
+            <li><span class="check-icon">✓</span><span>Informe anual de impacto y recomendaciones estratégicas.</span></li>
+          </ul>
+          <a href="contact.html?package=estrategico360" class="btn-primary card-btn">Diseñar programa anual <span class="arrow-icon">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.stack-tab');
+      const cards = document.querySelectorAll('.package-card');
+
+      function setActivePackage(packageId) {
+        tabs.forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.target === packageId);
+        });
+
+        cards.forEach(card => {
+          const id = card.dataset.packageId;
+          card.classList.remove('is-active', 'is-stacked-left', 'is-stacked-right');
+
+          if (id === packageId) {
+            card.classList.add('is-active');
+          } else {
+            if (packageId === 'integral') {
+              if (id === 'esencial') card.classList.add('is-stacked-left');
+              else card.classList.add('is-stacked-right');
+            } else if (packageId === 'esencial') {
+              if (id === 'integral') card.classList.add('is-stacked-right');
+              else card.classList.add('is-stacked-right');
+            } else if (packageId === '360') {
+              if (id === 'integral') card.classList.add('is-stacked-left');
+              else card.classList.add('is-stacked-left');
+            }
+          }
+        });
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          setActivePackage(tab.dataset.target);
+        });
+      });
+
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.tagName.toLowerCase() === 'a') return;
+          setActivePackage(card.dataset.packageId);
+        });
+      });
+
+      // Default active
+      setActivePackage('integral');
+    });
+  </script>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAM CONDITIONS ============ -->
+  <section class="conditions-section">
+    <div class="wrap">
+      <div class="section-head scroll-fade" style="text-align: center; margin-bottom: 24px;">
+        <div class="eyebrow" style="justify-content: center;"><div class="rule"></div><span>Términos y alcance operativo</span></div>
+        <h2>CONDICIONES DE LOS <em>PROGRAMAS</em></h2>
+        <p>Lineamientos generales sobre talleres, atención psicológica y confidencialidad.</p>
+      </div>
+
+      <!-- 3 Pagination / Shuffle Dots -->
+      <div class="conditions-dots scroll-fade">
+        <button type="button" class="cond-dot active" data-index="0" aria-label="Talleres especializados"></button>
+        <button type="button" class="cond-dot" data-index="1" aria-label="Atención psicológica"></button>
+        <button type="button" class="cond-dot" data-index="2" aria-label="Confidencialidad y reportes"></button>
+      </div>
+
+      <!-- 3 Interactive Shuffle Cards Deck -->
+      <div class="conditions-carousel scroll-fade" id="conditions-deck">
+        
+        <!-- Card 0: Talleres especializados -->
+        <div class="cond-card is-active" data-index="0">
+          <div class="condition-icon">🎓</div>
+          <h3>Talleres especializados</h3>
+          <ul>
+            <li>Cada taller tiene una duración de 4 horas y está diseñado para un grupo de hasta 25–30 participantes.</li>
+            <li>Cuando sea necesario repetir un taller para cubrir otros turnos, departamentos, grupos o sedes, cada repetición se cotizará como una intervención adicional.</li>
+          </ul>
+        </div>
+
+        <!-- Card 1: Atención psicológica -->
+        <div class="cond-card is-stacked-right" data-index="1">
+          <div class="condition-icon">🧠</div>
+          <h3>Atención psicológica</h3>
+          <ul>
+            <li>Las sesiones psicológicas tienen una duración de 50–60 minutos y se administran como un fondo mensual de atención confidencial.</li>
+            <li>La cantidad de sesiones contratadas no representa cobertura individual para todos los colaboradores. La asignación se realiza según demanda, priorización clínica y criterios acordados con la organización.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Confidencialidad y reportes -->
+        <div class="cond-card is-stacked-left" data-index="2">
+          <div class="condition-icon">🔒</div>
+          <h3>Confidencialidad y reportes</h3>
+          <ul>
+            <li>La información clínica individual es confidencial. Los reportes entregados a la empresa presentan resultados consolidados, tendencias organizacionales e indicadores generales, sin revelar datos clínicos personales.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Separate Personalización Banner Below -->
+      <div class="condition-banner scroll-fade">
+        <div class="condition-icon">⚙️</div>
+        <div class="banner-body">
+          <h3>Personalización de la propuesta</h3>
+          <p class="condition-intro">La inversión presentada corresponde a un alcance operativo base y puede variar según:</p>
+          <div class="banner-subgrid">
+            <ul>
+              <li>Número de colaboradores.</li>
+              <li>Cantidad de sedes y turnos.</li>
+              <li>Número de grupos participantes.</li>
+            </ul>
+            <ul>
+              <li>Modalidad presencial, virtual o híbrida.</li>
+              <li>Nivel de riesgo identificado.</li>
+              <li>Necesidad de repetir talleres o requerimientos logísticos.</li>
+            </ul>
+          </div>
+          <div class="condition-note">
+            <span>Importante:</span> Las organizaciones con más de 150 colaboradores, múltiples sedes o una operación distribuida recibirán una propuesta personalizada.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const condDots = document.querySelectorAll('.cond-dot');
+      const condCards = document.querySelectorAll('.cond-card');
+
+      function setConditionCard(index) {
+        const targetIdx = parseInt(index, 10);
+        condDots.forEach(dot => {
+          dot.classList.toggle('active', parseInt(dot.dataset.index, 10) === targetIdx);
+        });
+
+        condCards.forEach(card => {
+          const idx = parseInt(card.dataset.index, 10);
+          card.classList.remove('is-active', 'is-stacked-left', 'is-stacked-right');
+
+          if (idx === targetIdx) {
+            card.classList.add('is-active');
+          } else if ((idx === (targetIdx + 1) % 3)) {
+            card.classList.add('is-stacked-right');
+          } else {
+            card.classList.add('is-stacked-left');
+          }
+        });
+      }
+
+      condDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          setConditionCard(dot.dataset.index);
+        });
+      });
+
+      condCards.forEach(card => {
+        card.addEventListener('click', () => {
+          setConditionCard(card.dataset.index);
+        });
+      });
+
+      setConditionCard(0);
+    });
+  </script>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-mark">
+          <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+          <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+        </a>
+        <p>Consultoría de desempeño psicológico para organizaciones que tratan la mente como infraestructura, no como una idea de último momento.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sitio</h5>
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Nosotros</a>
+        <a href="services.html">Servicios</a>
+        <a href="packages.html">Paquetes</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <a href="mailto:Psycortexcorporate@gmail.com">Psycortexcorporate@gmail.com</a>
+        <a href="tel:+50373808867">+503 7380 8867</a>
+        <a href="contact.html">Formulario de contacto</a>
+      </div>
+      <div class="footer-col">
+        <h5>Conectar</h5>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom wrap">
+      <span>© 2026 Psycortex. Todos los derechos reservados.</span>
+      <span>Mejores mentes. Mejor desempeño.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=4"></script>
+</body>
+</html>

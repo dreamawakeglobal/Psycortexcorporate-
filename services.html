@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios | Psycortex</title>
+<meta name="description" content="Modelo de intervención estratégico de Psycortex: Diagnóstico y medición, Prevención y desarrollo, Atención clínica e intervención en crisis, Liderazgo y rendimiento sostenible.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=107">
+<style>
+  .service-detail-section {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .service-detail-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .service-detail-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .service-brand-col {
+    border-right: 1px solid var(--line) !important;
+  }
+  .service-detail-grid > div:first-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .service-detail-grid h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 8px 0 !important;
+    text-align: center;
+    color: var(--ink);
+  }
+  .service-detail-grid .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--rose);
+    display: block;
+    margin: 0 0 4px 0 !important;
+    font-weight: 500;
+    text-align: center;
+  }
+  .service-icon {
+    width: 140px;
+    height: auto;
+    margin: 0 auto !important;
+    display: block;
+  }
+  .service-detail-grid .lead {
+    font-size: 22px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 44px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 44px 36px;
+    box-shadow: 0 15px 40px rgba(14,13,12,0.04);
+    height: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(14,13,12,0.08);
+  }
+  .glass-card h4 {
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--ink);
+    text-align: center;
+  }
+  .glass-card ul {
+    list-style: none;
+  }
+  .glass-card ul li {
+    font-size: 18px;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 16px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .glass-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 2px;
+    background: var(--rose);
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="field-glow"></div>
+<canvas id="circuit"></canvas>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="index.html" class="logo-mark">
+    <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+    <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="about.html">Nosotros</a></li>
+    <li><a href="services.html">Servicios</a></li>
+    <li><a href="packages.html">Paquetes</a></li>
+    <li><a href="contact.html" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HEADER ============ -->
+<section class="services" style="padding: 160px 0 80px; border-bottom: 1px solid rgba(243,235,226,0.12);">
+  <div class="wrap" style="position: relative; z-index: 1;">
+    <div class="section-head" style="margin-bottom: 0;">
+      <div>
+        <div class="eyebrow"><div class="rule"></div><span>NUESTRO MODELO DE INTERVENCIÓN</span></div>
+        <h2>¿Cómo trabaja Psycortex?</h2>
+      </div>
+      <p>Ayudamos a las organizaciones a identificar, prevenir y atender los riesgos psicológicos que afectan el bienestar, el liderazgo y el desempeño.<br><br>Integramos psicología clínica, neurociencia y estrategia organizacional mediante un modelo que convierte las necesidades de cada empresa en intervenciones medibles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE 01 ============ -->
+<section id="service-01" class="service-detail-section" style="background: var(--cream-deep);">
+  <div class="wrap">
+    <div class="service-detail-grid scroll-fade">
+      <div class="service-brand-col">
+        <span class="num">01</span>
+        <h2>Diagnóstico y medición</h2>
+        <img src="assets/img/diagnostic-icon.png" alt="Icono Diagnóstico" class="service-icon">
+      </div>
+      <div>
+        <p class="lead">Evaluación de clima emocional, riesgos psicosociales, estrés, burnout y necesidades específicas de líderes y equipos.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div class="glass-card">
+            <h4>El Proceso</h4>
+            <ul>
+              <li>Instrumentos psicométricos y encuestas validadas</li>
+              <li>Entrevistas clínicas y estructuradas</li>
+              <li>Mapeo de estresores y clima emocional</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h4>Resultados</h4>
+            <ul>
+              <li>Diagnóstico preciso y mapa de riesgos</li>
+              <li>Identificación oportuna de puntos de dolor</li>
+              <li>Estrategia basada en datos concretos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE 02 ============ -->
+<section id="service-02" class="service-detail-section">
+  <div class="wrap">
+    <div class="service-detail-grid scroll-fade">
+      <div class="service-brand-col">
+        <span class="num">02</span>
+        <h2>Prevención y desarrollo</h2>
+        <img src="assets/img/resilience-icon.png" alt="Icono Prevención" class="service-icon">
+      </div>
+      <div>
+        <p class="lead">Talleres y programas personalizados sobre salud mental, regulación del estrés, comunicación, resiliencia y prevención del agotamiento laboral.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div class="glass-card">
+            <h4>El Proceso</h4>
+            <ul>
+              <li>Talleres modulares y prácticos por expertos</li>
+              <li>Capacitación en regulación del estrés y límites</li>
+              <li>Programas de resiliencia y comunicación</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h4>Resultados</h4>
+            <ul>
+              <li>Prevención efectiva del burnout laboral</li>
+              <li>Mayor cohesión y energía colectiva</li>
+              <li>Desarrollo de competencias emocionales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE 03 ============ -->
+<section id="service-03" class="service-detail-section" style="background: var(--cream-deep);">
+  <div class="wrap">
+    <div class="service-detail-grid scroll-fade">
+      <div class="service-brand-col">
+        <span class="num">03</span>
+        <h2>Atención clínica e intervención en crisis</h2>
+        <img src="assets/img/crisis-icon.png" alt="Icono Crisis" class="service-icon">
+      </div>
+      <div>
+        <p class="lead">Atención psicológica individual, manejo de crisis emocionales, acompañamiento de casos de alto riesgo y diseño de protocolos internos.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div class="glass-card">
+            <h4>El Proceso</h4>
+            <ul>
+              <li>Atención clínica individual confidencial</li>
+              <li>Intervención inmediata en crisis complejas</li>
+              <li>Diseño de protocolos internos de respuesta</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h4>Resultados</h4>
+            <ul>
+              <li>Estabilización y contención del talento</li>
+              <li>Protección rigurosa de la privacidad</li>
+              <li>Mitigación del impacto de eventos críticos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE 04 ============ -->
+<section id="service-04" class="service-detail-section">
+  <div class="wrap">
+    <div class="service-detail-grid scroll-fade">
+      <div class="service-brand-col">
+        <span class="num">04</span>
+        <h2>Liderazgo y rendimiento sostenible</h2>
+        <img src="assets/img/brain-icon.png" alt="Icono Liderazgo" class="service-icon">
+      </div>
+      <div>
+        <p class="lead">Programas para líderes, coaching especializado, gestión de conflictos y fortalecimiento de equipos que trabajan bajo presión.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div class="glass-card">
+            <h4>El Proceso</h4>
+            <ul>
+              <li>Coaching especializado para líderes y ejecutivos</li>
+              <li>Gestión de conflictos y dinámicas de equipo</li>
+              <li>Estrategias de toma de decisiones bajo presión</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h4>Resultados</h4>
+            <ul>
+              <li>Liderazgo empático y de alto rendimiento</li>
+              <li>Reducción de fricciones interpersonales</li>
+              <li>Resultados organizacionales sostenibles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-panel">
+    <h2>Convierta la salud mental de su equipo en una <em>ventaja estratégica</em>.</h2>
+    <p>Programe una consulta para diseñar un programa de bienestar corporativo adaptado a las necesidades reales de su organización.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary light">Programe una consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-mark">
+        <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
+        <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
+      </a>
+      <p>Consultoría de desempeño psicológico para organizaciones que tratan la mente como infraestructura, no como una idea de último momento.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Sitio</h5>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Nosotros</a>
+      <a href="services.html">Servicios</a>
+      <a href="packages.html">Paquetes</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="mailto:Psycortexcorporate@gmail.com">Psycortexcorporate@gmail.com</a>
+      <a href="tel:+50373808867">+503 7380 8867</a>
+      <a href="contact.html">Formulario de contacto</a>
+    </div>
+    <div class="footer-col">
+      <h5>Conectar</h5>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <span>© 2026 Psycortex. Todos los derechos reservados.</span>
+    <span>Mejores mentes. Mejor desempeño.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=4"></script>
+</body>
+</html>
