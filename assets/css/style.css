@@ -175,6 +175,13 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  .mobile-only {
+    display: none !important;
+  }
+  .desktop-only {
+    display: block !important;
+  }
+
   /* ---------- Hero ---------- */
   .hero{
     padding:160px 48px 100px;
@@ -1277,6 +1284,14 @@
 
   /* ---------- Mobile Navigation & Full-Width Responsive Layout ---------- */
   @media (max-width: 900px) {
+    .mobile-only {
+      display: flex !important;
+    }
+
+    .desktop-only {
+      display: none !important;
+    }
+
     html, body {
       width: 100% !important;
       max-width: 100% !important;
