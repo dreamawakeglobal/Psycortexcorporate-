@@ -961,11 +961,12 @@
   .credentials{padding:120px 0;}
   .cred-grid{
     display:grid;
-    grid-template-columns:420px 1fr;
-    gap:64px;
+    grid-template-columns:380px 1fr;
+    gap:40px;
     align-items:start;
     transform: none;
-    max-width: 1240px;
+    max-width: 95%;
+    width: 1480px;
     margin: 0 auto;
   }
   @media (max-width:900px){ .cred-grid{grid-template-columns:1fr; gap:32px; transform: none;} }
@@ -1155,11 +1156,12 @@
   }
   .founder-grid{
     display:grid;
-    grid-template-columns: 420px 1fr;
-    gap: 64px;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
     align-items: start;
     transform: none;
-    max-width: 1240px;
+    max-width: 95%;
+    width: 1480px;
     margin: 0 auto;
   }
   .founder-image{
