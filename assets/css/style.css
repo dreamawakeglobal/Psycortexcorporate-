@@ -961,15 +961,17 @@
   .credentials{padding:120px 0;}
   .cred-grid{
     display:grid;
-    grid-template-columns:360px 1fr;
-    gap:56px;
+    grid-template-columns:380px 1fr;
+    gap:60px;
     align-items:start;
-    transform: translateX(15%);
-    max-width: 1720px;
-    width: 85%;
-    padding: 0 40px;
+    transform: none !important;
+    max-width: 1280px;
+    margin: 0 auto;
   }
-  @media (max-width:900px){ .cred-grid{grid-template-columns:1fr !important; gap:32px !important; transform: none !important; margin: 0 !important; width: 100% !important; padding: 0 20px !important;} }
+  @media (max-width:900px){
+    .cred-grid{grid-template-columns:1fr !important; gap:32px !important; transform: none !important; margin: 0 !important; width: 100% !important; padding: 0 20px !important;}
+    .cred-copy{padding-right:0 !important; max-width:100% !important;}
+  }
 
   .cred-portrait{
     position:relative;
@@ -979,7 +981,7 @@
     overflow:hidden;
     border-radius:20px;
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     margin: 0;
     height: 640px !important;
     aspect-ratio: auto !important;
@@ -998,15 +1000,20 @@
   .cred-portrait svg{width:40%; opacity:0.5;}
   .cred-portrait img{width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1;}
 
+  .cred-copy {
+    width: 100%;
+    padding-right: 15%;
+    box-sizing: border-box;
+  }
   .cred-copy .eyebrow{margin-bottom:22px;}
   .cred-copy h2{
     font-family:'Cormorant Garamond', serif;
     font-weight:400;
-    font-size:clamp(26px, 3.5vw, 36px);
-    line-height:1.2;
+    font-size:clamp(26px, 3.2vw, 35px);
+    line-height:1.25;
     margin-bottom:30px;
     width: 100%;
-    max-width: 100%;
+    max-width: 700px;
     margin-right: 0;
   }
   .cred-copy h2 em{font-style:italic; color:var(--rose); font-weight:400;}
@@ -1156,13 +1163,17 @@
   }
   .founder-grid{
     display:grid;
-    grid-template-columns: 360px 1fr;
-    gap: 56px;
+    grid-template-columns: 380px 1fr;
+    gap: 60px;
     align-items: start;
-    transform: translateX(15%);
-    max-width: 1720px;
-    width: 85%;
-    padding: 0 40px;
+    transform: none !important;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .founder-content {
+    width: 100%;
+    padding-right: 15%;
+    box-sizing: border-box;
   }
   .founder-image{
     background: linear-gradient(135deg, var(--cream-deep), var(--cream));
@@ -1177,7 +1188,7 @@
     overflow: hidden;
     margin: 0;
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     box-shadow: 0 20px 50px rgba(14, 13, 12, 0.08);
   }
   .founder-image img{
@@ -1203,11 +1214,11 @@
   .founder-content h2{
     font-family:'Cormorant Garamond', serif;
     font-weight:400;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(26px, 3.2vw, 35px);
     line-height: 1.25;
     margin-bottom: 30px;
     color: var(--ink);
-    max-width: 100%;
+    max-width: 700px;
     width: 100%;
     margin-right: 0;
   }
