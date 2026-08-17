@@ -958,14 +958,14 @@
   }
 
   /* ---------- Credentials / about ---------- */
-  .credentials{padding:130px 0;}
+  .credentials{padding:120px 0;}
   .cred-grid{
     display:grid;
-    grid-template-columns:0.72fr 1.28fr;
-    gap:48px;
+    grid-template-columns:420px 1fr;
+    gap:64px;
     align-items:start;
     transform: none;
-    max-width: 1360px;
+    max-width: 1240px;
     margin: 0 auto;
   }
   @media (max-width:900px){ .cred-grid{grid-template-columns:1fr; gap:32px; transform: none;} }
@@ -976,12 +976,12 @@
     border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden;
-    border-radius:24px;
+    border-radius:20px;
     width: 100%;
-    max-width: 100%;
+    max-width: 420px;
     margin: 0;
-    height: auto !important;
-    aspect-ratio: 1 / 1;
+    height: 640px !important;
+    aspect-ratio: auto !important;
     box-shadow: 0 20px 50px rgba(14, 13, 12, 0.08);
   }
   .cred-portrait .frame-label{
@@ -995,7 +995,7 @@
     border-radius:6px;
   }
   .cred-portrait svg{width:40%; opacity:0.5;}
-  .cred-portrait img{width:100%; height:100%; object-fit:cover; object-position: 40% 0; opacity:1;}
+  .cred-portrait img{width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1;}
 
   .cred-copy .eyebrow{margin-bottom:22px;}
   .cred-copy h2{
@@ -1020,13 +1020,13 @@
     border-top:1px solid var(--line);
   }
   .cred-item{
-    display:grid; grid-template-columns: 180px 1fr; gap:30px;
-    padding:20px;
-    margin:0 -20px;
+    display:grid; grid-template-columns: 160px 1fr; gap:20px;
+    padding:16px 0;
+    margin:0;
     border-bottom:1px solid var(--line);
     font-size:14px;
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    border-radius:12px;
+    border-radius:0;
+    background:transparent;
     cursor:default;
   }
   .cred-item:hover {
@@ -1155,27 +1155,27 @@
   }
   .founder-grid{
     display:grid;
-    grid-template-columns: 0.72fr 1.28fr;
-    gap: 48px;
+    grid-template-columns: 420px 1fr;
+    gap: 64px;
     align-items: start;
     transform: none;
-    max-width: 1360px;
+    max-width: 1240px;
     margin: 0 auto;
   }
   .founder-image{
     background: linear-gradient(135deg, var(--cream-deep), var(--cream));
-    height: auto !important;
-    aspect-ratio: 1 / 1;
+    height: 640px !important;
+    aspect-ratio: auto !important;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     border: 1px solid var(--line);
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     margin: 0;
     width: 100%;
-    max-width: 100%;
+    max-width: 420px;
     box-shadow: 0 20px 50px rgba(14, 13, 12, 0.08);
   }
   .founder-image img{
