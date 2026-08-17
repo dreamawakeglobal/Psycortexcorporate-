@@ -964,13 +964,12 @@
     grid-template-columns:360px 1fr;
     gap:56px;
     align-items:start;
-    transform: none;
+    transform: translateX(15%);
     max-width: 1720px;
-    width: 95%;
-    margin: 0 auto;
+    width: 85%;
     padding: 0 40px;
   }
-  @media (max-width:900px){ .cred-grid{grid-template-columns:1fr; gap:32px; transform: none; padding: 0 20px;} }
+  @media (max-width:900px){ .cred-grid{grid-template-columns:1fr !important; gap:32px !important; transform: none !important; margin: 0 !important; width: 100% !important; padding: 0 20px !important;} }
 
   .cred-portrait{
     position:relative;
@@ -1160,10 +1159,9 @@
     grid-template-columns: 360px 1fr;
     gap: 56px;
     align-items: start;
-    transform: none;
+    transform: translateX(15%);
     max-width: 1720px;
-    width: 95%;
-    margin: 0 auto;
+    width: 85%;
     padding: 0 40px;
   }
   .founder-image{
