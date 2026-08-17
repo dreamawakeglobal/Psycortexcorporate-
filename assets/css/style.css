@@ -961,7 +961,7 @@
   .credentials{padding:130px 0;}
   .cred-grid{
     display:grid;
-    grid-template-columns:0.85fr 1.15fr;
+    grid-template-columns:1fr 1.15fr;
     gap:60px;
     align-items:start;
     transform: none;
@@ -976,11 +976,12 @@
     border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden;
-    border-radius:20px;
+    border-radius:24px;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    height: 560px;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
     box-shadow: 0 20px 50px rgba(14, 13, 12, 0.08);
   }
   .cred-portrait .frame-label{
@@ -1154,7 +1155,7 @@
   }
   .founder-grid{
     display:grid;
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: 60px;
     align-items: start;
     transform: none;
@@ -1163,13 +1164,14 @@
   }
   .founder-image{
     background: linear-gradient(135deg, var(--cream-deep), var(--cream));
-    height: 560px;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     border: 1px solid var(--line);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     margin: 0;
     width: 100%;
