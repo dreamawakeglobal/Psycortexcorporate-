@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=84">
+<link rel="stylesheet" href="assets/css/style.css?v=100">
 <style>
   .contact-page {
     padding: 160px 0 80px;
@@ -237,11 +237,17 @@
     <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
     <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
   </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="about.html">Nosotros</a></li>
     <li><a href="services.html">Servicios</a></li>
     <li><a href="packages.html">Paquetes</a></li>
+    <li><a href="contact.html" class="nav-cta">Contacto</a></li>
   </ul>
 </nav>
 
@@ -334,7 +340,7 @@
         <img src="assets/img/logo-new.png" alt="Psycortex Logo" style="height: 90px; width: auto; margin: -23px -11px; flex-shrink: 0;">
         <img src="assets/img/logo-text.png" alt="Psycortex Text" style="height: 90px; width: auto; margin: -8px -11px -23px -30px;">
       </a>
-      <p>Consultoría de desempeño psicológico para organizaciones que tratan la mente como infraestructura, no como una idea de último momento.</p>
+      <p>Cuéntanos sobre los desafíos actuales de su organización. Nuestro equipo evaluará sus necesidades para diseñar una estrategia de salud mental y rendimiento humano adaptada a su operación.</p>
     </div>
     <div class="footer-col">
       <h5>Sitio</h5>
@@ -364,7 +370,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/supabase.js?v=3"></script>
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=100"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
