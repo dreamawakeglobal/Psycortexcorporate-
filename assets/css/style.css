@@ -961,15 +961,16 @@
   .credentials{padding:120px 0;}
   .cred-grid{
     display:grid;
-    grid-template-columns:380px 1fr;
-    gap:40px;
+    grid-template-columns:360px 1fr;
+    gap:56px;
     align-items:start;
     transform: none;
-    max-width: 95%;
-    width: 1480px;
+    max-width: 1720px;
+    width: 95%;
     margin: 0 auto;
+    padding: 0 40px;
   }
-  @media (max-width:900px){ .cred-grid{grid-template-columns:1fr; gap:32px; transform: none;} }
+  @media (max-width:900px){ .cred-grid{grid-template-columns:1fr; gap:32px; transform: none; padding: 0 20px;} }
 
   .cred-portrait{
     position:relative;
@@ -1156,13 +1157,14 @@
   }
   .founder-grid{
     display:grid;
-    grid-template-columns: 380px 1fr;
-    gap: 40px;
+    grid-template-columns: 360px 1fr;
+    gap: 56px;
     align-items: start;
     transform: none;
-    max-width: 95%;
-    width: 1480px;
+    max-width: 1720px;
+    width: 95%;
     margin: 0 auto;
+    padding: 0 40px;
   }
   .founder-image{
     background: linear-gradient(135deg, var(--cream-deep), var(--cream));
