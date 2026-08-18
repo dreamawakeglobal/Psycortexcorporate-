@@ -49,7 +49,9 @@
   nav, .site-header{
     position:fixed; top:0; left:0; right:0; z-index:50;
     display:flex; align-items:center; justify-content:space-between;
-    padding:20px 28px 20px 48px;
+    padding:6px 28px 6px 48px;
+    height:68px;
+    max-height:68px;
     background:rgba(243, 235, 226, 0.15); /* Sleek transparent tint */
     backdrop-filter:blur(24px) saturate(150%);
     -webkit-backdrop-filter:blur(24px) saturate(150%);
@@ -66,6 +68,11 @@
     text-decoration:none;
     color:inherit;
     cursor:pointer;
+  }
+  .logo-mark img{
+    height:115px !important;
+    width:auto !important;
+    margin:-23px -12px !important;
   }
   .logo-mark svg{width:34px; height:34px; flex-shrink:0;}
   .logo-mark .b1{color:var(--ink); font-weight:500;}
@@ -1354,24 +1361,61 @@
     }
 
     nav, .site-header {
-      padding: 14px 20px !important;
+      padding: 4px 16px !important;
+      height: 56px !important;
+      max-height: 56px !important;
       width: 100% !important;
       max-width: 100% !important;
+      position: fixed !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
     }
 
     nav.scrolled {
-      padding: 12px 20px !important;
+      padding: 4px 16px !important;
       background: rgba(243, 235, 226, 0.96) !important;
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       box-shadow: 0 10px 30px rgba(14, 13, 12, 0.12);
     }
 
-    .logo-mark img {
-      max-height: 52px !important;
-      height: 52px !important;
-      width: auto !important;
+    /* Header Logo Alignment on Vertical Mobile: Brain Icon on Left, Font Logo Centered & Large */
+    nav .logo-mark {
+      display: flex !important;
+      align-items: center !important;
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
       margin: 0 !important;
+      z-index: 52 !important;
+    }
+
+    /* Brain icon image on left side of header (large presence in slim header) */
+    nav .logo-mark img:first-child {
+      max-height: 76px !important;
+      height: 76px !important;
+      width: auto !important;
+      margin: -10px 0 !important;
+      position: relative !important;
+      z-index: 52 !important;
+      object-fit: contain !important;
+    }
+
+    /* PSYCORTEX font logo centered in header (large presence in slim header) */
+    nav .logo-mark img:last-child {
+      max-height: 76px !important;
+      height: 76px !important;
+      width: auto !important;
+      position: absolute !important;
+      left: 50vw !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      margin: 0 !important;
+      z-index: 52 !important;
+      object-fit: contain !important;
+      pointer-events: none !important;
     }
 
     .nav-links {
@@ -2482,7 +2526,7 @@
   }
 
   .logo-mark img {
-    height: 90px !important;
+    height: 104px !important;
     margin: -23px -11px !important;
   }
 
@@ -2681,3 +2725,176 @@
     grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
   }
 }
+
+/* ==========================================================================
+   LAPTOP & PC AUTOMATIC RESPONSIVE ADJUSTMENT ENGINE
+   ========================================================================== */
+
+/* Large Laptop / PC Screens (1366px to 1599px) */
+@media (max-width: 1599px) and (min-width: 1025px) {
+  nav, .site-header {
+    padding: 6px 36px !important;
+    height: 68px !important;
+    max-height: 68px !important;
+  }
+  .nav-links {
+    gap: 24px !important;
+  }
+  .hero {
+    padding: 110px 36px 50px !important;
+    min-height: calc(100vh - 20px) !important;
+  }
+  .hero-inner {
+    max-width: 1440px !important;
+  }
+  .hero h1 {
+    max-width: min(560px, 42vw) !important;
+    font-size: clamp(28px, 3.2vw, 44px) !important;
+    line-height: 1.16 !important;
+  }
+  .hero-sub {
+    max-width: min(480px, 40vw) !important;
+    font-size: clamp(14px, 1.05vw, 16px) !important;
+    margin-top: 18px !important;
+  }
+  .hero-actions {
+    margin-top: 28px !important;
+  }
+  .float-card {
+    right: calc(480px + 3vw) !important;
+    top: 40px !important;
+    width: 250px !important;
+    padding: 20px 18px !important;
+    z-index: 4 !important;
+  }
+  .float-card .stat-num {
+    font-size: 34px !important;
+  }
+  .float-card .stat-label {
+    font-size: 10.5px !important;
+    margin-top: 4px !important;
+  }
+  .float-card .stat-rule {
+    margin: 10px 0 !important;
+  }
+  .hero-cutout {
+    right: -1% !important;
+    height: 96% !important;
+    max-height: 90vh !important;
+    z-index: 3 !important;
+  }
+}
+
+/* Medium & Compact Laptop Screens (1025px to 1365px) */
+@media (max-width: 1365px) and (min-width: 1025px) {
+  nav, .site-header {
+    padding: 5px 28px !important;
+    height: 64px !important;
+    max-height: 64px !important;
+  }
+  .nav-links {
+    gap: 18px !important;
+  }
+  .nav-links a {
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+  }
+  .nav-cta {
+    padding: 9px 20px !important;
+    font-size: 12px !important;
+  }
+  .hero {
+    padding: 105px 28px 45px !important;
+    min-height: auto !important;
+  }
+  .hero h1 {
+    max-width: min(460px, 38vw) !important;
+    font-size: clamp(23px, 2.7vw, 36px) !important;
+    line-height: 1.18 !important;
+  }
+  .hero-sub {
+    max-width: min(420px, 37vw) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 14px !important;
+  }
+  .hero-actions {
+    margin-top: 22px !important;
+    gap: 12px !important;
+  }
+  .btn-primary {
+    padding: 10px 18px !important;
+    font-size: 10.5px !important;
+  }
+  .btn-ghost {
+    font-size: 10.5px !important;
+  }
+  .float-card {
+    right: calc(420px + 2vw) !important;
+    top: 25px !important;
+    width: 230px !important;
+    padding: 16px 14px !important;
+    border-radius: 16px !important;
+    z-index: 4 !important;
+  }
+  .float-card .stat-num {
+    font-size: 28px !important;
+  }
+  .float-card .stat-label {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+  .float-card .stat-rule {
+    margin: 8px 0 !important;
+  }
+  .hero-cutout {
+    right: -2% !important;
+    height: 92% !important;
+    max-height: 82vh !important;
+    z-index: 3 !important;
+  }
+  .trust-row {
+    margin-top: 40px !important;
+  }
+
+  /* Grid scaling for internal pages on laptops */
+  .cred-grid, .founder-grid {
+    grid-template-columns: minmax(340px, 36%) 1fr !important;
+    gap: 36px !important;
+  }
+  .service-detail-grid {
+    grid-template-columns: 260px 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+/* Height-Constrained Laptop Viewports (Aspect Ratio / Short Screens e.g. 1366x768, 1440x900) */
+@media (max-height: 850px) and (min-width: 1025px) {
+  .hero {
+    padding-top: 88px !important;
+    padding-bottom: 28px !important;
+    min-height: auto !important;
+  }
+  .eyebrow {
+    margin-bottom: 10px !important;
+  }
+  .hero h1 {
+    font-size: clamp(23px, 2.6vw, 36px) !important;
+  }
+  .hero-sub {
+    margin-top: 10px !important;
+  }
+  .hero-actions {
+    margin-top: 18px !important;
+  }
+  .float-card {
+    top: 15px !important;
+    padding: 14px 12px !important;
+  }
+  .trust-row {
+    margin-top: 25px !important;
+  }
+}
+
+
+
