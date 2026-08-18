@@ -67,16 +67,6 @@
     color:inherit;
     cursor:pointer;
   }
-  /* Desktop Brain Icon Logo (20% larger than original base) */
-  .logo-mark img:first-child,
-  .logo-mark img[src*="logo-new"] {
-    height: 108px !important;
-    max-height: 108px !important;
-    width: auto !important;
-    margin: -25px -11px !important;
-    transform: scale(1.20) !important;
-    transform-origin: left center !important;
-  }
   .logo-mark svg{width:34px; height:34px; flex-shrink:0;}
   .logo-mark .b1{color:var(--ink); font-weight:500;}
   .logo-mark .b2{color:var(--rose); font-weight:500;}
@@ -1364,62 +1354,24 @@
     }
 
     nav, .site-header {
-      padding: 4px 16px !important;
-      height: 56px !important;
-      max-height: 56px !important;
+      padding: 14px 20px !important;
       width: 100% !important;
       max-width: 100% !important;
-      position: fixed !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
     }
 
     nav.scrolled {
-      padding: 4px 16px !important;
+      padding: 12px 20px !important;
       background: rgba(243, 235, 226, 0.96) !important;
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       box-shadow: 0 10px 30px rgba(14, 13, 12, 0.12);
     }
 
-    /* Header Logo Alignment on Vertical Mobile: Brain Icon on Left, Font Logo Centered & Large */
-    nav .logo-mark {
-      display: flex !important;
-      align-items: center !important;
-      position: relative !important;
-      left: auto !important;
-      top: auto !important;
-      transform: none !important;
-      margin: 0 !important;
-      z-index: 52 !important;
-    }
-
-    /* Brain icon image on left side of header (large presence in slim header) */
-    nav .logo-mark img:first-child {
-      max-height: 76px !important;
-      height: 76px !important;
+    .logo-mark img {
+      max-height: 52px !important;
+      height: 52px !important;
       width: auto !important;
-      margin: -10px 0 !important;
-      position: relative !important;
-      transform: none !important;
-      z-index: 52 !important;
-      object-fit: contain !important;
-    }
-
-    /* PSYCORTEX font logo centered in header (large presence in slim header) */
-    nav .logo-mark img:last-child {
-      max-height: 76px !important;
-      height: 76px !important;
-      width: auto !important;
-      position: absolute !important;
-      left: 50vw !important;
-      top: 50% !important;
-      transform: translate(-50%, -50%) !important;
       margin: 0 !important;
-      z-index: 52 !important;
-      object-fit: contain !important;
-      pointer-events: none !important;
     }
 
     .nav-links {
@@ -2729,101 +2681,3 @@
     grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
   }
 }
-
-/* ==========================================================================
-   LAPTOP & PC AUTOMATIC RESPONSIVE ADJUSTMENT ENGINE
-   ========================================================================== */
-
-/* ==========================================================================
-   LAPTOP & PC AUTOMATIC RESPONSIVE ADJUSTMENT ENGINE
-   ========================================================================== */
-
-/* Large Laptop / PC Screens (1366px to 1599px) */
-@media (max-width: 1599px) and (min-width: 1025px) {
-  nav, .site-header {
-    padding: 16px 40px !important;
-  }
-  .hero {
-    zoom: 0.88;
-    padding: 140px 48px 80px !important;
-    min-height: calc(100vh - 10px) !important;
-  }
-  .hero-inner {
-    max-width: 1850px !important;
-  }
-  .hero h1 {
-    max-width: 920px !important;
-    font-size: clamp(31px, 4.4vw, 58px) !important;
-  }
-  .hero-sub {
-    max-width: 540px !important;
-    font-size: 17.5px !important;
-  }
-  .float-card {
-    right: calc(140px + 10vw) !important;
-    top: 60px !important;
-    width: 308px !important;
-    z-index: 4 !important;
-  }
-  .hero-cutout {
-    right: 1.5% !important;
-    height: 102% !important;
-    z-index: 3 !important;
-  }
-}
-
-/* Medium & Compact Laptop Screens (1025px to 1365px) */
-@media (max-width: 1365px) and (min-width: 1025px) {
-  nav, .site-header {
-    padding: 14px 28px !important;
-  }
-  .hero {
-    zoom: 0.78;
-    padding: 130px 40px 70px !important;
-    min-height: calc(100vh - 10px) !important;
-  }
-  .hero-inner {
-    max-width: 1850px !important;
-  }
-  .hero h1 {
-    max-width: 900px !important;
-    font-size: clamp(30px, 4.2vw, 54px) !important;
-  }
-  .hero-sub {
-    max-width: 520px !important;
-    font-size: 17px !important;
-  }
-  .float-card {
-    right: calc(140px + 10vw) !important;
-    top: 60px !important;
-    width: 308px !important;
-    z-index: 4 !important;
-  }
-  .hero-cutout {
-    right: 1.5% !important;
-    height: 102% !important;
-    z-index: 3 !important;
-  }
-
-  /* Grid scaling for internal pages on compact laptops */
-  .cred-grid, .founder-grid {
-    grid-template-columns: minmax(340px, 36%) 1fr !important;
-    gap: 36px !important;
-  }
-  .service-detail-grid {
-    grid-template-columns: 260px 1fr !important;
-    gap: 32px !important;
-  }
-}
-
-/* Height-Constrained Laptop Viewports (Short Screens e.g. 1366x768, 1440x900) */
-@media (max-height: 850px) and (min-width: 1025px) {
-  .hero {
-    zoom: 0.82;
-    padding-top: 110px !important;
-    padding-bottom: 50px !important;
-  }
-}
-
-
-
