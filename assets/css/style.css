@@ -2723,7 +2723,7 @@
     margin-top: 26px !important;
   }
   .float-card {
-    right: calc(140px + 10vw) !important;
+    right: clamp(230px, 19%, 300px) !important;
     top: clamp(88px, 10.8vh, 115px) !important;
     width: clamp(191px, 14.9vw, 228px) !important;
     padding: clamp(12.5px, 1.1vw, 19px) !important;
@@ -2795,6 +2795,37 @@
   .roadmap-connector svg {
     width: 20px !important;
     height: 20px !important;
+  }
+  /* Program / Intervention Pillar Cards — 15% Smaller for Smaller PC View */
+  .pillar-card {
+    padding: 18px 18px !important;
+    gap: 12px !important;
+  }
+  .pillar-num {
+    font-size: 17px !important;
+  }
+  .pillar-content h4 {
+    font-size: 18.7px !important;
+    margin-bottom: 6px !important;
+  }
+  .pillar-content p {
+    font-size: 11.9px !important;
+    line-height: 1.5 !important;
+  }
+  .pillar-card .arrow {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* Program Package Cards — 15% Smaller for Smaller PC View */
+  .package-card {
+    padding: 26px 20px !important;
+  }
+  .package-card h3 {
+    font-size: 23.8px !important;
+  }
+  .package-card p, .package-card .pkg-features li {
+    font-size: 12px !important;
   }
 }
 
