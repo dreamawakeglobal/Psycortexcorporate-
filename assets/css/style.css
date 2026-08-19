@@ -195,7 +195,7 @@
   .hero-cutout{
     position:absolute;
     bottom:0;
-    right:1.5%;
+    right:-0.5%;
     height:102%;
     z-index:3;
     pointer-events:none;
@@ -2572,7 +2572,7 @@
     display: block !important;
     visibility: visible !important;
     position: absolute !important;
-    right: 0.5% !important;
+    right: -1.5% !important;
     bottom: 0 !important;
     top: auto !important;
     left: auto !important;
@@ -2742,7 +2742,7 @@
     margin: clamp(6px, 0.6vw, 10px) 0 !important;
   }
   .hero-cutout {
-    right: -1.5% !important;
+    right: -3.5% !important;
     height: 100% !important;
     max-height: 100vh !important;
     z-index: 3 !important;
