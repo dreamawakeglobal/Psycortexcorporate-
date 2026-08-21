@@ -28,7 +28,7 @@ Tu proyecto de Supabase actual es:
 4. Pega el código que se encuentra en [supabase/functions/send-inquiry/index.ts](file:///Users/tariqwest/.gemini/antigravity/scratch/psycho-balance/supabase/functions/send-inquiry/index.ts).
 5. Ve a **Edge Functions** > **Secrets** (o **Project Settings** > **Configuration** > **Edge Function Secrets**) y agrega las siguientes variables de entorno:
    - `RESEND_API_KEY`: Tu clave de Resend (`re_...`)
-   - `NOTIFICATION_EMAIL`: `Psycortexcorporate@gmail.com` (o el correo donde deseas recibir las alertas)
+   - `NOTIFICATION_EMAIL`: `Info@psycortexcorporate.com` (o el correo donde deseas recibir las alertas)
    - `FROM_EMAIL`: `Psycortex Consultas <onboarding@resend.dev>` (o `notificaciones@tudominio.com` si verificaste tu dominio)
 6. Guarda los cambios. ¡Listo! El formulario web ya está configurado para invocar esta función automáticamente.
 
@@ -46,7 +46,7 @@ npx supabase login
 npx supabase link --project-ref yefobyrygndbvhuzhkop
 
 # 3. Establecer los secretos de Resend
-npx supabase secrets set RESEND_API_KEY=re_TU_CLAVE_AQUI NOTIFICATION_EMAIL=Psycortexcorporate@gmail.com
+npx supabase secrets set RESEND_API_KEY=re_TU_CLAVE_AQUI NOTIFICATION_EMAIL=Info@psycortexcorporate.com
 
 # 4. Desplegar la función
 npx supabase functions deploy send-inquiry --no-verify-jwt
