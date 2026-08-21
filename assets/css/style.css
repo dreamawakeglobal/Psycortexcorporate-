@@ -2683,156 +2683,187 @@
 }
 
 /* ==========================================================================
-   LAPTOP & SMALLER PC AUTOMATIC RESPONSIVE DISPLAY ENGINE
+   UNIVERSAL FLUID RESPONSIVE ENGINE (CALIBRATED TO 24-INCH iMAC BASELINE)
+   Scales smoothly and continuously across ALL PC & Laptop viewports (1025px - 2560px+)
    ========================================================================== */
-@media (max-width: 1680px) and (min-width: 1025px) {
+@media (min-width: 1025px) {
   nav, .site-header {
-    padding: 12px 28px 12px 48px !important;
+    padding: clamp(10px, 1.2vh, 18px) clamp(24px, 2.5vw, 48px) !important;
   }
   .hero {
-    padding: 130px 48px 80px !important;
+    padding: clamp(100px, 12vh, 160px) clamp(24px, 2.5vw, 48px) clamp(40px, 6vh, 80px) !important;
     min-height: 100vh !important;
     min-height: 100dvh !important;
     height: 100vh !important;
     display: flex !important;
     align-items: center !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
   .hero-inner {
     max-width: 1850px !important;
     width: 100% !important;
+    margin: 0 auto !important;
+  }
+  .eyebrow {
+    margin-bottom: clamp(12px, 2vh, 28px) !important;
   }
   .eyebrow .rule {
-    width: 41px !important;
+    width: clamp(32px, 2.3vw, 46px) !important;
   }
   .eyebrow span {
-    font-size: 12px !important;
+    font-size: clamp(11px, 0.65vw, 13.5px) !important;
   }
   .hero h1 {
-    font-size: clamp(23px, 2.88vw, 45px) !important;
-    max-width: min(700px, 50vw) !important;
-    line-height: 1.18 !important;
+    font-size: clamp(26px, 2.8vw, 62px) !important;
+    max-width: min(990px, 50vw) !important;
+    line-height: 1.15 !important;
   }
   .hero-sub {
-    font-size: clamp(13px, 0.99vw, 15.8px) !important;
-    max-width: min(480px, 37vw) !important;
+    font-size: clamp(13px, 0.85vw, 18px) !important;
+    max-width: min(560px, 36vw) !important;
     line-height: 1.65 !important;
-    margin-top: 20px !important;
+    margin-top: clamp(14px, 2vh, 30px) !important;
   }
   .hero-actions {
-    margin-top: 26px !important;
+    margin-top: clamp(20px, 3.8vh, 56px) !important;
+    gap: clamp(12px, 1.2vw, 20px) !important;
   }
   .float-card {
-    right: clamp(230px, 19%, 300px) !important;
-    top: clamp(88px, 10.8vh, 115px) !important;
-    width: clamp(191px, 14.9vw, 228px) !important;
-    padding: clamp(12.5px, 1.1vw, 19px) !important;
+    position: absolute !important;
+    right: clamp(280px, 22.5vw, 460px) !important;
+    top: clamp(50px, 7.5vh, 90px) !important;
+    width: clamp(185px, 13.5vw, 308px) !important;
+    padding: clamp(12.5px, 1.35vw, 31px) !important;
     z-index: 4 !important;
+    box-sizing: border-box !important;
   }
   .float-card .stat-num {
-    font-size: clamp(22.6px, 1.8vw, 31.5px) !important;
+    font-size: clamp(22.5px, 2vw, 46px) !important;
   }
   .float-card .stat-label {
-    font-size: clamp(8.6px, 0.68vw, 9.5px) !important;
+    font-size: clamp(8px, 0.53vw, 12px) !important;
     line-height: 1.5 !important;
     letter-spacing: 0.08em !important;
-    margin-top: 6px !important;
+    margin-top: clamp(4px, 0.5vh, 10px) !important;
   }
   .float-card .stat-rule {
-    margin: clamp(6px, 0.6vw, 10px) 0 !important;
+    margin: clamp(6px, 0.8vh, 16px) 0 !important;
   }
   .hero-cutout {
-    right: -3.5% !important;
+    position: absolute !important;
+    right: clamp(-3.5%, -0.8vw, -0.5%) !important;
+    bottom: 0 !important;
     height: 100% !important;
     max-height: 100vh !important;
     z-index: 3 !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+    pointer-events: none !important;
   }
   .trust-row {
-    margin-top: 34px !important;
+    margin-top: clamp(20px, 3.2vh, 60px) !important;
   }
-  /* Nuestra Metodología — 10% Bigger Cards on Single Horizontal Row */
+  .trust-marks span {
+    font-size: clamp(13px, 0.8vw, 16px) !important;
+  }
+
+  /* Nuestra Metodología — Continuous Proportional Single Horizontal Row */
   .approach .wrap {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: clamp(20px, 2.5vw, 48px) !important;
+    padding-right: clamp(20px, 2.5vw, 48px) !important;
     max-width: 1850px !important;
   }
   .approach-grid {
+    display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
-    gap: 12px !important;
+    gap: clamp(8px, 0.8vw, 20px) !important;
     align-items: stretch !important;
   }
   .approach-card, .roadmap-card {
-    flex: 0 1 265px !important;
+    flex: 1 1 0 !important;
     min-width: 0 !important;
-    max-width: 265px !important;
-    padding: 40px 16px 26px !important;
+    max-width: 320px !important;
+    padding: clamp(28px, 2.2vw, 46px) clamp(12px, 1vw, 22px) !important;
     border-radius: 20px !important;
+    box-sizing: border-box !important;
   }
   .approach-card svg {
-    width: 38px !important;
-    height: 38px !important;
-    margin: 0 auto 18px !important;
+    width: clamp(28px, 2vw, 38px) !important;
+    height: clamp(28px, 2vw, 38px) !important;
+    margin: 0 auto clamp(10px, 1.2vh, 18px) !important;
   }
   .roadmap-step-badge {
-    font-size: 11px !important;
-    padding: 4px 12px !important;
-    margin-bottom: 18px !important;
+    font-size: clamp(9.5px, 0.58vw, 12px) !important;
+    padding: 4px clamp(8px, 0.6vw, 14px) !important;
+    margin-bottom: clamp(10px, 1.2vh, 18px) !important;
     letter-spacing: 0.1em !important;
   }
   .approach-card h3 {
-    font-size: 23px !important;
-    margin-bottom: 12px !important;
+    font-size: clamp(17px, 1.2vw, 24px) !important;
+    margin-bottom: clamp(6px, 0.8vh, 12px) !important;
   }
   .approach-card p {
-    font-size: 14.5px !important;
-    line-height: 1.6 !important;
+    font-size: clamp(11.5px, 0.7vw, 14.5px) !important;
+    line-height: 1.55 !important;
   }
   .roadmap-connector {
-    margin: 0 2px !important;
+    margin: 0 clamp(1px, 0.2vw, 6px) !important;
     z-index: 2 !important;
+    align-self: center !important;
   }
   .roadmap-connector svg {
-    width: 20px !important;
-    height: 20px !important;
+    width: clamp(14px, 1vw, 22px) !important;
+    height: clamp(14px, 1vw, 22px) !important;
   }
-  /* Program / Intervention Pillar Cards — 15% Smaller for Smaller PC View */
+
+  /* Intervention Pillar Cards */
   .pillar-card {
-    padding: 18px 18px !important;
-    gap: 12px !important;
+    padding: clamp(16px, 1.2vw, 28px) !important;
+    gap: clamp(10px, 0.8vw, 16px) !important;
   }
   .pillar-num {
-    font-size: 17px !important;
+    font-size: clamp(14px, 0.9vw, 18px) !important;
   }
   .pillar-content h4 {
-    font-size: 18.7px !important;
+    font-size: clamp(16px, 1.05vw, 21px) !important;
     margin-bottom: 6px !important;
   }
   .pillar-content p {
-    font-size: 11.9px !important;
+    font-size: clamp(11.5px, 0.65vw, 14px) !important;
     line-height: 1.5 !important;
   }
   .pillar-card .arrow {
-    width: 15px !important;
-    height: 15px !important;
+    width: clamp(13px, 0.8vw, 16px) !important;
+    height: clamp(13px, 0.8vw, 16px) !important;
   }
 
-  /* Program Package Cards — 15% Smaller for Smaller PC View */
+  /* Package Cards */
   .package-card {
-    padding: 26px 20px !important;
+    padding: clamp(22px, 1.5vw, 36px) !important;
   }
   .package-card h3 {
-    font-size: 23.8px !important;
+    font-size: clamp(20px, 1.3vw, 28px) !important;
   }
   .package-card p, .package-card .pkg-features li {
-    font-size: 12px !important;
+    font-size: clamp(11.5px, 0.65vw, 14px) !important;
+  }
+
+  /* Footer 4-Column Balanced Grid */
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
+    gap: clamp(24px, 2.5vw, 50px) !important;
   }
 }
 
 @media (max-height: 850px) and (min-width: 1025px) {
   .hero {
-    padding-top: 110px !important;
-    padding-bottom: 50px !important;
+    padding-top: clamp(80px, 10vh, 110px) !important;
+    padding-bottom: clamp(30px, 5vh, 50px) !important;
     min-height: 100vh !important;
     height: 100vh !important;
   }
