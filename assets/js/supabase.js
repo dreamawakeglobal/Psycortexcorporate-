@@ -41,7 +41,22 @@ async function submitInquiry(formData) {
     .from('inquiries')
     .insert([payload]);
 
-  return { data, error };
+  let emailSent = false;
+  try {
+    // Attempt to invoke the Supabase Edge Function to send email notification via Resend
+    const funcRes = await client.functions.invoke('send-inquiry', {
+      body: payload
+    });
+    if (!funcRes.error) {
+      emailSent = true;
+    } else {
+      console.info('Edge function notice:', funcRes.error);
+    }
+  } catch (fnErr) {
+    console.info('Edge function invocation skipped or pending setup:', fnErr);
+  }
+
+  return { data, error, emailSent };
 }
 
 window.PsycortexSupabase = {
