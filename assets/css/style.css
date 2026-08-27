@@ -42,7 +42,7 @@
 
   /* ---------- Neural circuit signature canvas ---------- */
   #circuit{
-    position:absolute; top:0; left:0; width:100vw; height:100%; z-index:1; pointer-events:none;
+    position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none;
   }
 
   /* ---------- Nav ---------- */
@@ -447,18 +447,47 @@
     border-top: 1px solid rgba(14, 13, 12, 0.08);
     border-bottom: 1px solid rgba(14, 13, 12, 0.08);
     border-radius: 8px;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    contain: paint;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .industry-ribbon::before,
+  .industry-ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .industry-ribbon::before {
+    left: 0;
+    background: linear-gradient(to right, #F3EBE2 0%, rgba(243, 235, 226, 0) 100%);
+  }
+
+  .industry-ribbon::after {
+    right: 0;
+    background: linear-gradient(to left, #F3EBE2 0%, rgba(243, 235, 226, 0) 100%);
   }
 
   .ribbon-track {
     display: flex;
     width: max-content;
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     animation: ribbonMarquee 25s linear infinite;
   }
 
-  .ribbon-track:hover {
-    animation-play-state: paused;
+  @media (hover: hover) and (pointer: fine) {
+    .ribbon-track:hover {
+      animation-play-state: paused;
+    }
   }
 
   .ribbon-group {
@@ -467,6 +496,7 @@
     gap: 24px;
     padding-right: 24px;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .ribbon-group span {
@@ -485,8 +515,14 @@
   }
 
   @keyframes ribbonMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 
   /* ---------- Approach / philosophy ---------- */
@@ -1351,27 +1387,68 @@
 
     .nav-toggle {
       display: flex !important;
+      position: absolute !important;
+      right: 18px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      z-index: 60 !important;
+      margin: 0 !important;
     }
 
     nav, .site-header {
-      padding: 14px 20px !important;
+      padding: 12px 18px !important;
       width: 100% !important;
       max-width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      position: fixed !important;
     }
 
-    nav.scrolled {
-      padding: 12px 20px !important;
-      background: rgba(243, 235, 226, 0.96) !important;
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      box-shadow: 0 10px 30px rgba(14, 13, 12, 0.12);
+    nav .logo-mark,
+    .site-header .logo-mark {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      position: relative !important;
+      margin: 0 !important;
     }
 
-    .logo-mark img {
+    /* Brain icon logo on the left */
+    nav .logo-mark img:first-child,
+    .site-header .logo-mark img:first-child {
       max-height: 52px !important;
       height: 52px !important;
       width: auto !important;
       margin: 0 !important;
+      object-fit: contain !important;
+      flex-shrink: 0 !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    /* PSYCORTEX Corporate Mental Health text logo centered in header bar (50% bigger) */
+    nav .logo-mark img:last-child,
+    .site-header .logo-mark img:last-child {
+      max-height: 72px !important;
+      height: 72px !important;
+      width: auto !important;
+      max-width: calc(100vw - 110px) !important;
+      margin: 0 !important;
+      object-fit: contain !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 1 !important;
+    }
+
+    nav.scrolled {
+      padding: 10px 18px !important;
+      background: rgba(243, 235, 226, 0.96) !important;
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 10px 30px rgba(14, 13, 12, 0.12);
     }
 
     .nav-links {
@@ -1395,20 +1472,24 @@
       z-index: 55;
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
       transform: translateY(-12px);
       transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
       box-shadow: 0 20px 50px rgba(14, 13, 12, 0.2);
     }
 
     .nav-links.is-open {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
     }
 
     .nav-links li {
       width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 3;
     }
 
     .nav-links a {
@@ -1419,6 +1500,8 @@
       min-height: 48px;
       line-height: 24px;
       color: var(--ink);
+      position: relative;
+      z-index: 3;
     }
 
     .nav-links a.nav-cta {
@@ -1583,6 +1666,11 @@
       max-width: 100% !important;
       margin: 12px auto 0 auto !important;
       overflow: hidden !important;
+    }
+
+    .industry-ribbon::before,
+    .industry-ribbon::after {
+      width: 32px !important;
     }
 
     .wrap {
