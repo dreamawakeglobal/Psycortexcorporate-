@@ -1666,11 +1666,50 @@
       max-width: 100% !important;
       margin: 12px auto 0 auto !important;
       overflow: hidden !important;
+      padding: 12px 0 !important;
+      contain: none !important;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%) !important;
+      mask-image: linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%) !important;
     }
 
     .industry-ribbon::before,
     .industry-ribbon::after {
-      width: 32px !important;
+      display: none !important;
+    }
+
+    .ribbon-track {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      width: max-content !important;
+      min-width: max-content !important;
+    }
+
+    .ribbon-group {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      flex: 0 0 auto !important;
+      min-width: max-content !important;
+      width: max-content !important;
+      gap: 18px !important;
+      padding-right: 18px !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+    }
+
+    .ribbon-group span {
+      display: inline-block !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+      font-size: 15.5px !important;
+    }
+
+    .ribbon-group .dot {
+      display: inline-block !important;
+      flex-shrink: 0 !important;
+      font-size: 11px !important;
     }
 
     .wrap {
