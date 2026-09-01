@@ -68,3 +68,22 @@ CREATE TRIGGER on_inquiry_created_send_resend_email
   AFTER INSERT ON public.inquiries
   FOR EACH ROW
   EXECUTE FUNCTION public.send_inquiry_resend_email();
+
+-- ==========================================================
+-- 4. SEGURIDAD Y POLÍTICAS DE ACCESO (ROW LEVEL SECURITY - RLS)
+-- ==========================================================
+-- Habilitar RLS en la tabla inquiries
+ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
+
+-- Permitir únicamente la inserción de consultas por usuarios anónimos (Frontend público)
+DROP POLICY IF EXISTS "Allow anon insert inquiries" ON public.inquiries;
+CREATE POLICY "Allow anon insert inquiries" ON public.inquiries
+  FOR INSERT TO anon
+  WITH CHECK (true);
+
+-- Bloquear explícitamente lectura, modificación y borrado para anon (solo servicio/dashboard)
+DROP POLICY IF EXISTS "Deny anon read inquiries" ON public.inquiries;
+CREATE POLICY "Deny anon read inquiries" ON public.inquiries
+  FOR SELECT TO anon
+  USING (false);
+

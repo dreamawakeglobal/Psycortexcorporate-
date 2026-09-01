@@ -4,12 +4,36 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const NOTIFICATION_EMAIL = Deno.env.get("NOTIFICATION_EMAIL") || "info@psycortexcorporate.com";
 const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "Psycortex Consultas <onboarding@resend.dev>";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const ALLOWED_ORIGIN = Deno.env.get("ALLOWED_ORIGIN") || "https://psycortexcorporate.com";
+
+function getCorsHeaders(req: Request) {
+  const origin = req.headers.get("origin");
+  const isAllowed = origin && (
+    origin.endsWith("psycortexcorporate.com") ||
+    origin.includes("localhost") ||
+    origin.includes("127.0.0.1")
+  );
+  return {
+    "Access-Control-Allow-Origin": isAllowed ? origin : ALLOWED_ORIGIN,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+}
+
+function escapeHtml(str: string): string {
+  if (!str) return "";
+  return String(str)
+    .slice(0, 2000)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -20,8 +44,12 @@ serve(async (req) => {
       throw new Error("RESEND_API_KEY secret is not set in Supabase environment variables.");
     }
 
-    const { name, email, organization, engagement, engagement_type, message } = await req.json();
-    const program = engagement || engagement_type || "No especificado";
+    const rawData = await req.json();
+    const name = escapeHtml(rawData.name);
+    const email = escapeHtml(rawData.email);
+    const organization = escapeHtml(rawData.organization);
+    const program = escapeHtml(rawData.engagement || rawData.engagement_type || "No especificado");
+    const message = escapeHtml(rawData.message);
 
     // Format HTML Email Template with Psycortex branding
     const htmlContent = `

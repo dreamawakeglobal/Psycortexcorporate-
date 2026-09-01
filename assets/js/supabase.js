@@ -49,11 +49,9 @@ async function submitInquiry(formData) {
     });
     if (!funcRes.error) {
       emailSent = true;
-    } else {
-      console.info('Edge function notice:', funcRes.error);
     }
   } catch (fnErr) {
-    console.info('Edge function invocation skipped or pending setup:', fnErr);
+    // Edge function invocation fallback handled by database trigger if edge function is pending
   }
 
   return { data, error, emailSent };

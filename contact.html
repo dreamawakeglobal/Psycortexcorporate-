@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Contacto | Psycortex</title>
-<meta name="description" content="Póngase en contacto con Psycortex para hablar sobre sus necesidades de psicología organizacional.">
+<meta name="description" content="Póngase en contacto con Psycortex para diseñar una estrategia de salud mental y rendimiento humano adaptada a su organización.">
+
+<!-- Open Graph / LinkedIn / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://psycortexcorporate.com/contact.html">
+<meta property="og:title" content="Contacto | Psycortex">
+<meta property="og:description" content="Póngase en contacto con Psycortex para diseñar una estrategia de salud mental y rendimiento humano.">
+<meta property="og:image" content="https://psycortexcorporate.com/assets/img/alba-cortez-psycortex.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://psycortexcorporate.com/contact.html">
+<meta name="twitter:title" content="Contacto | Psycortex">
+<meta name="twitter:description" content="Póngase en contacto con Psycortex para diseñar una estrategia de salud mental y rendimiento humano.">
+<meta name="twitter:image" content="https://psycortexcorporate.com/assets/img/alba-cortez-psycortex.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=182">
+<link rel="stylesheet" href="assets/css/style.css?v=184">
 <style>
   .contact-page {
     padding: 160px 0 80px;
@@ -179,6 +194,20 @@
     z-index: 5;
     animation: successFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+  #form-error {
+    display: none;
+    padding: 16px 20px;
+    background: rgba(220, 53, 69, 0.08);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    border-radius: 10px;
+    color: #b02a37;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+    z-index: 5;
+  }
   @keyframes successFadeIn {
     from { opacity: 0; transform: translateY(12px) scale(0.97); }
     to { opacity: 1; transform: translateY(0) scale(1); }
@@ -285,6 +314,7 @@
       <div>
         <div class="form-panel">
           <form id="contact-form" novalidate>
+            <div id="form-error" role="alert"></div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: flex-end;">
               <div class="form-group">
                 <label class="form-label" for="name">Nombre completo</label>
@@ -363,14 +393,14 @@
     </div>
   </div>
   <div class="footer-bottom wrap">
-    <span>© 2026 Psycortex. Todos los derechos reservados.</span>
+    <span>© <span class="copyright-year">2026</span> Psycortex. Todos los derechos reservados.</span>
     <span>Mejores mentes. Mejor desempeño.</span>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/supabase.js?v=4"></script>
-<script src="assets/js/main.js?v=124"></script>
+<script src="assets/js/main.js?v=184"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
@@ -390,35 +420,68 @@
     }
 
     if (contactForm) {
+      const errorMsg = document.getElementById('form-error');
+
       contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        if (errorMsg) {
+          errorMsg.style.display = 'none';
+          errorMsg.textContent = '';
+        }
+
         const formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          organization: document.getElementById('organization').value,
+          name: (document.getElementById('name').value || '').trim(),
+          email: (document.getElementById('email').value || '').trim(),
+          organization: (document.getElementById('organization').value || '').trim(),
           engagement: document.getElementById('engagement').value,
-          message: document.getElementById('message').value
+          message: (document.getElementById('message').value || '').trim()
         };
+
+        if (!formData.name || !formData.email || !formData.organization || !formData.message) {
+          if (errorMsg) {
+            errorMsg.textContent = 'Por favor complete todos los campos requeridos.';
+            errorMsg.style.display = 'block';
+          }
+          return;
+        }
 
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = 'Enviando...';
         }
 
+        let isSuccess = false;
         try {
           const { data, error } = await window.PsycortexSupabase.submitInquiry(formData);
           if (error) {
             console.error('Supabase submission error:', error);
+            if (errorMsg) {
+              errorMsg.textContent = 'Hubo un problema al enviar su mensaje. Por favor intente de nuevo o contáctenos directamente a Info@psycortexcorporate.com';
+              errorMsg.style.display = 'block';
+            }
+          } else {
+            isSuccess = true;
           }
         } catch (err) {
           console.error('Form submission exception:', err);
+          if (errorMsg) {
+            errorMsg.textContent = 'Error de conexión. Por favor intente de nuevo más tarde o envíe un correo a Info@psycortexcorporate.com';
+            errorMsg.style.display = 'block';
+          }
+        } finally {
+          if (submitBtn && !isSuccess) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar consulta';
+          }
         }
 
-        // Show success UI
-        contactForm.style.display = 'none';
-        if (successMsg) {
-          successMsg.style.display = 'block';
+        if (isSuccess) {
+          contactForm.style.display = 'none';
+          if (errorMsg) errorMsg.style.display = 'none';
+          if (successMsg) {
+            successMsg.style.display = 'block';
+          }
         }
       });
     }

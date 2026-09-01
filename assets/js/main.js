@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let w = 0, h = 0, nodes = [], reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let lastW = 0, lastH = 0;
 
+  let animFrameId = null;
+  let isTabVisible = true;
+
   function initNodes(targetW, targetH) {
     nodes = [];
-    const count = Math.floor((targetW * targetH) / 36842); /* 5% fewer neurons */
+    const count = Math.min(60, Math.floor((targetW * targetH) / 36842)); /* Cap max nodes for CPU efficiency */
     for (let i = 0; i < count; i++) {
       nodes.push({
         x: Math.random() * targetW,
@@ -40,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const oldH = h;
       h = canvas.height = currentH;
       lastH = h;
-      const extraCount = Math.floor(((h - oldH) * w) / 36842);
+      const extraCount = Math.min(15, Math.floor(((h - oldH) * w) / 36842));
       for (let i = 0; i < extraCount; i++) {
+        if (nodes.length >= 75) break;
         nodes.push({
           x: Math.random() * w,
           y: oldH + Math.random() * (h - oldH),
@@ -56,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function draw() {
-    if (!ctx) return;
+    if (!ctx || !isTabVisible) return;
     ctx.clearRect(0, 0, w, h);
     const scrollY = window.scrollY || window.pageYOffset || 0;
     const innerH = window.innerHeight || 800;
@@ -73,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (b.y > viewBottom || b.y < viewTop) continue;
         const dx = a.x - b.x, dy = a.y - b.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 220) {
-          const op = (1 - dist / 220) * 0.25;
+        if (dist < 200) {
+          const op = (1 - dist / 200) * 0.25;
           ctx.strokeStyle = `rgba(14,13,12,${op})`;
           ctx.lineWidth = 0.6;
           ctx.beginPath();
@@ -105,19 +109,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    requestAnimationFrame(draw);
+    if (!reduceMotion) {
+      animFrameId = requestAnimationFrame(draw);
+    }
   }
 
   resize(true);
-  window.addEventListener('resize', () => resize(false), { passive: true });
+  
+  let resizeTimeout = null;
+  window.addEventListener('resize', () => {
+    if (resizeTimeout) clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => resize(false), 150);
+  }, { passive: true });
+
   window.addEventListener('orientationchange', () => {
-    setTimeout(() => resize(true), 100);
+    setTimeout(() => resize(true), 150);
   });
-  if (!reduceMotion) {
-    draw();
-  } else {
-    draw(); // single static frame
-  }
+
+  document.addEventListener('visibilitychange', () => {
+    isTabVisible = !document.hidden;
+    if (isTabVisible && !reduceMotion) {
+      draw();
+    }
+  });
+
+  draw();
 
   // ---------- Scroll fade & stage activation ----------
   const fadeElements = document.querySelectorAll('.stage, .scroll-fade');
@@ -192,6 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMobileNav();
     }
   }, { passive: true });
+
+  // ---------- Dynamic Copyright Year ----------
+  const yrStr = String(new Date().getFullYear());
+  document.querySelectorAll('.copyright-year, #current-year').forEach(el => {
+    el.textContent = yrStr;
+  });
 
 });
 

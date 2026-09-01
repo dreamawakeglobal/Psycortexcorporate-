@@ -1,0 +1,5 @@
+# robots.txt for Psycortex Corporate
+User-agent: *
+Allow: /
+
+Sitemap: https://psycortexcorporate.com/sitemap.xml
