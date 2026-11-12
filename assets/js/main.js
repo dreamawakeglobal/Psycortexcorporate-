@@ -59,55 +59,141 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function draw() {
-    if (!ctx || !isTabVisible) return;
-    ctx.clearRect(0, 0, w, h);
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-    const innerH = window.innerHeight || 800;
-    const viewTop = scrollY - 200;
-    const viewBottom = scrollY + innerH + 200;
+  // ---------- Reviews Section Neural Circuit ----------
+  const revCanvas = document.getElementById('reviewsCircuit');
+  const revCtx = revCanvas ? revCanvas.getContext('2d') : null;
+  let revW = 0, revH = 0, revNodes = [];
+  let isRevVisible = true;
 
-    const len = nodes.length;
+  function initRevNodes() {
+    if (!revCanvas) return;
+    revNodes = [];
+    const count = Math.min(36, Math.max(18, Math.floor((revW * revH) / 14000)));
+    for (let i = 0; i < count; i++) {
+      revNodes.push({
+        x: Math.random() * revW,
+        y: Math.random() * revH,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: (Math.random() - 0.5) * 0.14,
+        r: Math.random() * 2.2 + 1.2,
+        pulse: Math.random() * Math.PI * 2,
+        colorType: Math.random() > 0.5 ? '216,154,152' : '109,139,170'
+      });
+    }
+  }
+
+  function resizeRev() {
+    if (!revCanvas) return;
+    const parent = revCanvas.parentElement;
+    if (!parent) return;
+    revW = revCanvas.width = parent.offsetWidth || window.innerWidth;
+    revH = revCanvas.height = parent.offsetHeight || 380;
+    initRevNodes();
+  }
+
+  function drawRev() {
+    if (!revCtx || !isRevVisible || !isTabVisible) return;
+    revCtx.clearRect(0, 0, revW, revH);
+    const rLen = revNodes.length;
     // draw connections
-    for (let i = 0; i < len; i++) {
-      const a = nodes[i];
-      if (a.y > viewBottom || a.y < viewTop) continue;
-      for (let j = i + 1; j < len; j++) {
-        const b = nodes[j];
-        if (b.y > viewBottom || b.y < viewTop) continue;
+    for (let i = 0; i < rLen; i++) {
+      const a = revNodes[i];
+      for (let j = i + 1; j < rLen; j++) {
+        const b = revNodes[j];
         const dx = a.x - b.x, dy = a.y - b.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
-          const op = (1 - dist / 200) * 0.25;
-          ctx.strokeStyle = `rgba(14,13,12,${op})`;
-          ctx.lineWidth = 0.6;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
+        if (dist < 190) {
+          const op = (1 - dist / 190) * 0.25;
+          revCtx.strokeStyle = `rgba(14,13,12,${op})`;
+          revCtx.lineWidth = 0.6;
+          revCtx.beginPath();
+          revCtx.moveTo(a.x, a.y);
+          revCtx.lineTo(b.x, b.y);
+          revCtx.stroke();
         }
       }
     }
 
     // draw nodes
-    for (let i = 0; i < len; i++) {
-      const n = nodes[i];
-      if (n.y >= viewTop && n.y <= viewBottom) {
-        n.pulse += 0.012;
-        const glow = (Math.sin(n.pulse) + 1) / 2;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r + glow * 0.8, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${n.colorType},${0.4 + glow * 0.4})`;
-        ctx.fill();
-      }
+    for (let i = 0; i < rLen; i++) {
+      const n = revNodes[i];
+      n.pulse += 0.014;
+      const glow = (Math.sin(n.pulse) + 1) / 2;
+      revCtx.beginPath();
+      revCtx.arc(n.x, n.y, n.r + glow * 0.85, 0, Math.PI * 2);
+      revCtx.fillStyle = `rgba(${n.colorType},${0.45 + glow * 0.45})`;
+      revCtx.fill();
 
       if (!reduceMotion) {
         n.x += n.vx;
         n.y += n.vy;
-        if (n.x < 0 || n.x > w) n.vx *= -1;
-        if (n.y < 0 || n.y > h) n.vy *= -1;
+        if (n.x < 0 || n.x > revW) n.vx *= -1;
+        if (n.y < 0 || n.y > revH) n.vy *= -1;
       }
     }
+  }
+
+  if (revCanvas && 'IntersectionObserver' in window) {
+    const revObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isRevVisible = entry.isIntersecting;
+      });
+    }, { rootMargin: '200px 0px' });
+    revObserver.observe(revCanvas);
+  }
+
+  function draw() {
+    if (ctx && isTabVisible) {
+      ctx.clearRect(0, 0, w, h);
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const innerH = window.innerHeight || 800;
+      const viewTop = scrollY - 200;
+      const viewBottom = scrollY + innerH + 200;
+
+      const len = nodes.length;
+      // draw connections
+      for (let i = 0; i < len; i++) {
+        const a = nodes[i];
+        if (a.y > viewBottom || a.y < viewTop) continue;
+        for (let j = i + 1; j < len; j++) {
+          const b = nodes[j];
+          if (b.y > viewBottom || b.y < viewTop) continue;
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 200) {
+            const op = (1 - dist / 200) * 0.25;
+            ctx.strokeStyle = `rgba(14,13,12,${op})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // draw nodes
+      for (let i = 0; i < len; i++) {
+        const n = nodes[i];
+        if (n.y >= viewTop && n.y <= viewBottom) {
+          n.pulse += 0.012;
+          const glow = (Math.sin(n.pulse) + 1) / 2;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r + glow * 0.8, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${n.colorType},${0.4 + glow * 0.4})`;
+          ctx.fill();
+        }
+
+        if (!reduceMotion) {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > w) n.vx *= -1;
+          if (n.y < 0 || n.y > h) n.vy *= -1;
+        }
+      }
+    }
+
+    drawRev();
 
     if (!reduceMotion) {
       animFrameId = requestAnimationFrame(draw);
@@ -115,15 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   resize(true);
+  resizeRev();
   
   let resizeTimeout = null;
   window.addEventListener('resize', () => {
     if (resizeTimeout) clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => resize(false), 150);
+    resizeTimeout = setTimeout(() => {
+      resize(false);
+      resizeRev();
+    }, 150);
   }, { passive: true });
 
   window.addEventListener('orientationchange', () => {
-    setTimeout(() => resize(true), 150);
+    setTimeout(() => {
+      resize(true);
+      resizeRev();
+    }, 150);
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -214,6 +307,193 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.copyright-year, #current-year').forEach(el => {
     el.textContent = yrStr;
   });
+
+  // ---------- Generic Section Neural Circuits (.section-circuit) ----------
+  document.querySelectorAll('canvas.section-circuit').forEach(sc => {
+    const sctx = sc.getContext('2d');
+    if (!sctx) return;
+    let sw = 0, sh = 0, sNodes = [], sVisible = false;
+
+    function sInit() {
+      const parent = sc.parentElement;
+      sw = sc.width = parent.offsetWidth || window.innerWidth;
+      sh = sc.height = parent.offsetHeight || 600;
+      sNodes = [];
+      const count = Math.min(70, Math.max(24, Math.floor((sw * sh) / 26000)));
+      for (let i = 0; i < count; i++) {
+        sNodes.push({
+          x: Math.random() * sw,
+          y: Math.random() * sh,
+          vx: (Math.random() - 0.5) * 0.16,
+          vy: (Math.random() - 0.5) * 0.14,
+          r: Math.random() * 2.2 + 1.2,
+          pulse: Math.random() * Math.PI * 2,
+          colorType: Math.random() > 0.5 ? '216,154,152' : '109,139,170'
+        });
+      }
+    }
+
+    function sDraw() {
+      if (sVisible && isTabVisible) {
+        sctx.clearRect(0, 0, sw, sh);
+        const n = sNodes.length;
+        for (let i = 0; i < n; i++) {
+          const a = sNodes[i];
+          for (let j = i + 1; j < n; j++) {
+            const b = sNodes[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 190) {
+              sctx.strokeStyle = `rgba(14,13,12,${(1 - dist / 190) * 0.25})`;
+              sctx.lineWidth = 0.6;
+              sctx.beginPath();
+              sctx.moveTo(a.x, a.y);
+              sctx.lineTo(b.x, b.y);
+              sctx.stroke();
+            }
+          }
+        }
+        for (let i = 0; i < n; i++) {
+          const p = sNodes[i];
+          p.pulse += 0.014;
+          const glow = (Math.sin(p.pulse) + 1) / 2;
+          sctx.beginPath();
+          sctx.arc(p.x, p.y, p.r + glow * 0.85, 0, Math.PI * 2);
+          sctx.fillStyle = `rgba(${p.colorType},${0.45 + glow * 0.45})`;
+          sctx.fill();
+          if (!reduceMotion) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > sw) p.vx *= -1;
+            if (p.y < 0 || p.y > sh) p.vy *= -1;
+          }
+        }
+      }
+      if (!reduceMotion) requestAnimationFrame(sDraw);
+    }
+
+    sInit();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => { sVisible = e.isIntersecting; });
+      }, { rootMargin: '200px 0px' }).observe(sc);
+    } else {
+      sVisible = true;
+    }
+    let sResizeT = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(sResizeT);
+      sResizeT = setTimeout(sInit, 200);
+    }, { passive: true });
+    window.addEventListener('load', sInit);
+    if (reduceMotion) { sVisible = true; sDraw(); } else { sDraw(); }
+  });
+
+  // ---------- Scattered Floating Gallery & Zoom Lightbox ----------
+  const scatterStage = document.getElementById('scatterStage');
+  const scatterCards = scatterStage ? Array.from(scatterStage.querySelectorAll('.scatter-card')) : [];
+  const lightbox = document.getElementById('galleryLightbox');
+
+  if (scatterStage && scatterCards.length > 0 && !reduceMotion) {
+    scatterStage.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 1120) return;
+      const rect = scatterStage.getBoundingClientRect();
+      const relX = (e.clientX - rect.left) - rect.width / 2;
+      const relY = (e.clientY - rect.top) - rect.height / 2;
+      scatterCards.forEach(card => {
+        const depth = parseFloat(card.dataset.depth || '0.03');
+        card.style.setProperty('--px', `${(relX * depth).toFixed(1)}px`);
+        card.style.setProperty('--py', `${(relY * depth).toFixed(1)}px`);
+      });
+    }, { passive: true });
+
+    scatterStage.addEventListener('mouseleave', () => {
+      scatterCards.forEach(card => {
+        card.style.setProperty('--px', '0px');
+        card.style.setProperty('--py', '0px');
+      });
+    });
+  }
+
+  if (lightbox && scatterCards.length > 0) {
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCat = document.getElementById('lightboxCategory');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbDesc = document.getElementById('lightboxDesc');
+    const lbCounter = document.getElementById('lightboxCounter');
+    const lbClose = document.getElementById('lightboxClose');
+    const lbBackdrop = document.getElementById('lightboxBackdrop');
+    const lbPrev = document.getElementById('lightboxPrev');
+    const lbNext = document.getElementById('lightboxNext');
+
+    let activeIdx = 0;
+
+    function renderLightboxItem(index) {
+      const total = scatterCards.length;
+      activeIdx = (index + total) % total;
+      const card = scatterCards[activeIdx];
+      const imgEl = card.querySelector('img');
+
+      if (lbImg && imgEl) {
+        lbImg.style.opacity = '0.35';
+        lbImg.src = imgEl.getAttribute('src');
+        lbImg.alt = imgEl.getAttribute('alt') || '';
+        requestAnimationFrame(() => {
+          lbImg.style.opacity = '1';
+        });
+      }
+      if (lbCat) lbCat.textContent = card.dataset.category || '';
+      if (lbTitle) lbTitle.textContent = card.dataset.title || '';
+      if (lbDesc) lbDesc.textContent = card.dataset.caption || '';
+      if (lbCounter) {
+        const num = String(activeIdx + 1).padStart(2, '0');
+        const tot = String(total).padStart(2, '0');
+        lbCounter.textContent = `${num} / ${tot}`;
+      }
+    }
+
+    function openLightbox(index) {
+      renderLightboxItem(index);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox.classList.contains('is-open')) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    scatterCards.forEach((card, idx) => {
+      card.addEventListener('click', () => openLightbox(idx));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(idx);
+        }
+      });
+    });
+
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lbBackdrop) lbBackdrop.addEventListener('click', closeLightbox);
+    if (lbPrev) lbPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      renderLightboxItem(activeIdx - 1);
+    });
+    if (lbNext) lbNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      renderLightboxItem(activeIdx + 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') renderLightboxItem(activeIdx + 1);
+      if (e.key === 'ArrowLeft') renderLightboxItem(activeIdx - 1);
+    });
+  }
 
 });
 
